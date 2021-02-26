@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mocha</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mocha.css" />
+  </head>
+  <body>
+    <!-- 意思就是在html里面测试，首先自动生成，接着把测试脚本和它需要的文件都引进来 -->
+    <div id="mocha"></div>
+    <script src="mocha.js"></script>
+    <script>mocha.setup('bdd');</script>
+    <!-- 这个文件 -->
+    <script src="add.js"></script>
+    <!-- 断言库 -->
+    <script src="http://chaijs.com/chai.js"></script>
+    <!-- 这里面都是测试文件 -->
+    <script src="tests.js"></script>
+    <script>
+      mocha.run();
+    </script>
+  </body>
+</html>
