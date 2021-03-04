@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Meadowlark Travel</title>
+	{{!-- 之前在app.js中引入showTests，根据需要引入测试框架 --}}
+	{{#if showTests}}
+	<link rel="stylesheet" href="/vendor/mocha.css">
+	{{/if}}
+</head>
+
+<body>
+	<header><img src="/img/logo.png" alt="Meadowlark Travel Logo"></header>
+	{{{body}}}
+	{{!-- 不仅可以用它做网站的住DOM处理库，还可以做测试断言库 --}}
+	<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/vendor/js/jquery-2.1.1.min.js"><\/script>')</script>
+	{{!--
+	这是一个部分
+	{{#section 'jquery'}}
+	{{/section}}
+	--}}
+	{{{_sections.jquery}}}
+
+	{{#if showTests}}
+	<div id="mocha"></div>
+	{{!-- 引入mocha和chai --}}
+	<script src="/vendor/mocha.js"></script>
+	<script src="/vendor/chai.js"></script>
+	<script>
+		mocha.ui('tdd');
+		var assert = chai.assert;
+	</script>
+	{{!-- 这是每个页面上都要运行的测试 --}}
+	<script src="/qa/tests-global.js"></script>
+	{{#if pageTestScript}}
+	<script src="{{pageTestScript}}"></script>
+	{{/if}}
+	{{!-- 还有这里注意一下 --}}
+	<script>mocha.run();</script>
+	{{/if}}
+</body>
+
+</html>
