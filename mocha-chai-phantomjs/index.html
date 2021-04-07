@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mocha</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="mocha.css" />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <!-- ———————————————————————————————————————————————————————————— -->
+    <!-- 新增代码 -->
+    <script src='chai.js'></script>
+    <script>
+      var fibonacci = function (n) {
+        if (n === 0) {
+          return 0;
+        }
+        if (n === 1) {
+          return 1;
+        }
+        return fibonacci(n-1) + fibonacci(n-2);
+      };
+    </script>
+    <!-- ———————————————————————————————————————————————————————————— -->
+    <script src="mocha.js"></script>
+    <script>
+      // 告知mocha使用bdd接口
+      mocha.setup('bdd');
+    </script>
+    <script src="tests.spec.js"></script>
+    <!-- <script>
+      mocha.run();
+    </script> -->
+    <script>
+      if (window.mochaPhantomJS) { mochaPhantomJS.run(); }
+      else { mocha.run(); }
+    </script>
+  </body>
+</html>
+<!-- 可以使用浏览器打开，但是如果一直都是使用浏览器有点不方便，可以使用plantomjs，
+npm test就可以 -->

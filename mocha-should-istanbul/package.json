@@ -1,0 +1,17 @@
+{
+  "name": "mocha-should-istanbul",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "istanbul cover node_modules/mocha/bin/_mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "istanbul": "^0.4.5",
+    "mocha": "^8.3.2",
+    "should": "^13.2.3"
+  }
+}
